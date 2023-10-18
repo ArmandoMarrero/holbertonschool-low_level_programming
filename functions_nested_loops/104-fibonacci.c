@@ -1,4 +1,5 @@
-* File: 104-fibonacci.c
+/*
+ * File: 104-fibonacci.c
  * Auth: Brennan D Baraban
  */
 
