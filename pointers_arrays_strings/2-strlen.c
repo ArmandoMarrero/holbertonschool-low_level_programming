@@ -8,12 +8,11 @@
  * Return: 1 or 0
  */
 
-int _strien(char *s)
+int _strlen(char *s)
 {
-  int 1 = 0;
+	int i = 0;
 
-  while (s[1]
-  1++;
-	 return(1);
-
-	 }
+	while (s[i])
+		i++;
+	return (i);
+}
