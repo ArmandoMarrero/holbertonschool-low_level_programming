@@ -1,20 +1,15 @@
 #include "main.h"
 
 /**
- * _puts - a function that takes a pointer to an int as parameter and
- * @str: chaine of caractere
+ * main - check the code
  *
- * Return: 1 or 0
+ * Return: Always 0.
  */
-
-void _puts(char *str)
+int main(void)
 {
-	int i = 0;
+    char *str;
 
-	while (str[i])
-	{
-		_putchar(str[i]);
-		i++;
-	}
-	_putchar('\n');
+    str = "I do not fear computers. I fear the lack of them - Isaac Asimov";
+    _puts(str);
+    return (0);
 }
