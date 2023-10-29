@@ -1,21 +1,32 @@
+
 #include "main.h"
-#include <string.h>
 
 /**
-  *_strstr -  locates a substring
-  *@haystack: string
-  *@needle: substring
-  *Return:pointer to the beginning of the located substring
+  *_strchr -  locates a character in a string
+  *@s: The string
+  *@c: the character in the string
+  *Return:first occurrence of the character c in the string s else NULL
   */
-char *_strstr(char *haystack, char *needle)
+char *_strchr(char *s, char c)
 {
-	char *locate = strstr(haystack, needle);
+	int i;
+	char *ptr = s;
 
-	if (locate == strstr(haystack, needle))
+	for (i = 0; s[i] != '\0'; i++)
+	{
+		if (*ptr == c)
+		{
+			return (ptr);
+		}
+		ptr++;
 
-		return (locate);
+	}
+	if (c == '\0')
+	{
+		return (ptr);
+	}
 
-	else
-		return (NULL);
+
+	return (0);
 
 }
