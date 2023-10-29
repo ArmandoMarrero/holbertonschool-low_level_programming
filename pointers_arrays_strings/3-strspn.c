@@ -1,23 +1,24 @@
-#i/**
- * _strspn - gets the length of a prefix substring
- * @s: segment to compare bytes from
- * @accept: string of bytes to compare with
- * Return: number of bytes in segment s which consist of bytes from accept
+#include "main.h"
+/**
+ * _strspn - prints the consecutive caracters of s1 that are in s2.
+ * @s: source string
+ * @accept: searching string
+ *
+ * Return: new string.
  */
-
 unsigned int _strspn(char *s, char *accept)
 {
 	unsigned int i, j;
 
-	i = 0;
-	while (s[i] != '\0')
+	for (j = 0; *(s + j); j++)
 	{
-		j = 0;
-		while (accept[j] != '\0' && s[i] != accept[j])
-			j++;
-		if (accept[j] == '\0')
-			return (i);
-		i++;
+		for (i = 0; *(accept + i); i++)
+		{
+			if (*(s + j) == *(accept + i))
+				break;
+		}
+	if (*(accept + i) == '\0')
+		break;
 	}
-	return (i);
+	return (j);
 }
