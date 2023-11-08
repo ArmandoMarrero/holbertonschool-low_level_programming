@@ -1,41 +1,20 @@
 #include <stdlib.h>
 
 /**
- * argstostr - converts array of strings to one string with newline separators
+ * free_grid - free up grid allocated by alloc_grid
  *
- * @ac: number of strings
- * @av: array of strings
+ * @grid: - grid to free
+ * @height: - height of grid
  *
- * Return: char * to concatenated string
+ * Return: void
  */
-char *argstostr(int ac, char **av)
+void free_grid(int **grid, int height)
 {
-	int size = 0, i;
-	char *ptr, *ret, *retptr;
-
-	if (ac == 0 || !av)
-		return (NULL);
-
-	for (i = 0; i < ac; i++)
-	{
-		ptr = av[i];
-		while (*ptr++)
-			size++;
-	}
-
-	ret = malloc(size + 1 + ac);
-	if (!ret)
-		return (NULL);
-
-	retptr = ret;
-	for (i = 0; i < ac; i++)
-	{
-		for (ptr = av[i]; *ptr; ptr++, retptr++)
-		{
-			*retptr = *ptr;
-		}
-		*retptr++ = '\n';
-	}
-
-	return (ret);
+	if (!grid)
+		return;
+	if (!grid[0])
+		return;
+	while (height-- > 0)
+		free(grid[height]);
+	free(grid);
 }
