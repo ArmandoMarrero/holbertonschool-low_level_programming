@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include main.h
 
 /**
  * malloc_checked - malloc memory and exit 98 on failure
