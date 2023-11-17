@@ -1,22 +1,35 @@
-#include <stdio.h>
 
-struct Dog {
-  char name[50];
-  float age;
-  char owner[50];
+
+#ifndef DOG_H
+#define DOG_H
+
+/*
+ * File: dog.h
+ * Auth: Gedeon Obae Gekonge
+ * Desc: Header file that defines a new type struct dog.
+ */
+
+/**
+ * struct dog - A new type describing a dog.
+ * @name: The name of the dog.
+ * @age: The age of the dog.
+ * @owner: The owner of the dog.
+ */
+struct dog
+{
+	char *name;
+	float age;
+	char *owner;
 };
 
-int main() {
+/**
+ * dog_t - Typedef for struct dog
+ */
+typedef struct dog dog_t;
 
-  struct Dog myDog;
+void init_dog(struct dog *d, char *name, float age, char *owner);
+void print_dog(struct dog *d);
+dog_t *new_dog(char *name, float age, char *owner);
+void free_dog(dog_t *d);
 
-  snprintf(myDog.name, sizeof(myDog.name), "Buddy");
-  myDog.age = 2.5;
-  snprintf(myDog.0wner, sizeof(myDog.owner), "John Doe");
-
-   printf("Dog's Name: %s\n", myDog.name);
-    printf("Dog's Age: %.1f\n", myDog.age);
-    printf("Owner's Name: %s\n", myDog.owner);
-
-    return 0;
-}
+#endif
