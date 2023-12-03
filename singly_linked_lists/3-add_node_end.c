@@ -1,28 +1,27 @@
 #include "lists.h"
-#include <stdlib.h>
-
 /**
- * free_list - free a list_t list
- *
- * @head: head of list to free
- *
- * Return: void
+ * add_dnodeint_end - adds a new node at the end of a dlistint_t list.
+ * @head: pointer to list head.
+ * @n: integer to be included in the new node.
+ * Return: the address of the new element, or NULL if it failed
  */
-void free_list(list_t *head)
+dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 {
-	list_t *next;
+	dlistint_t *tmp_node = NULL, *new_node = malloc(sizeof(dlistint_t));
 
-	if (head == NULL)
-		return;
-	*next = head->next;
-
-	while (head != NULL)
+	if (new_node)
 	{
-		if (head->str != NULL)
-			free(head->str);
-		free(head);
-		head = next;
-		if (head != NULL)
-			next = head->next;
+		new_node->n = n;
+		if (*head)
+		{
+			tmp_node = *head;
+			while (tmp_node->next)
+				tmp_node = tmp_node->next;
+			tmp_node->next = new_node;
+			new_node->prev = tmp_node;
+		}
+		else
+			*head = new_node;
 	}
+	return (new_node);
 }
